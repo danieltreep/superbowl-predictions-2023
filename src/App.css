@@ -1,13 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 * {
   margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-body {
+.App {
   background-color: #013369;
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
+}
+label {
+  color: white;
+  border-radius: 10px;
+}
+label img {
+  border-radius: 10px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem;
+  width: calc(100% - 4rem);
+  padding: 1rem;
 }
 
+h1, p {
+  margin: 2rem auto 1rem;
+  text-align: center;
+  color: white;
+}
+input {
+  padding: .8rem;
+  margin: 1rem 0 3rem;
+  border-radius: 10px;
+  border: white 1px solid;
+  outline: white;
+  background-color: rgba(255, 255, 255, 0.281);
+}
+input:focus {
+  background-color: rgb(255, 255, 255);
+}
+button {
+  padding: 1rem;
+  margin: 1rem 0 0;
+  background-color: yellow;
+  border-radius: 10px;
+  border: none;
+}
+
+input[type=radio] + label {
+  opacity: 0.5;
+}
+input[type=radio]:checked + label{
+  opacity: 1;
+  box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.5);
+}
+.match {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 1rem 0;
+}
+.vs {
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  border-radius: 50%;
+  color: white;
+}
