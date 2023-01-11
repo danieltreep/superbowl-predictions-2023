@@ -18,6 +18,8 @@ import vikings from './images/vikings.png';
 import seahawks from './images/seahawks.png';
 import chiefs from './images/chiefs.png';
 import eagles from './images/eagles.png';
+import Championship from './Championship';
+import Superbowl from './Superbowl';
 
 function App() {
 
@@ -34,15 +36,15 @@ function App() {
         7: dolphins
     },
     nfcteams: {
-        1: chiefs,
-        2: bills,
-        3: bengals,
-        4: jaguars,
-        5: chargers,
-        6: ravens,
-        7: dolphins
+        1: eagles,
+        2: sf,
+        3: vikings,
+        4: bucs,
+        5: cowboys,
+        6: giants,
+        7: seahawks
     }
-}
+  }
   
   const results = {
     afc1: '5',
@@ -51,17 +53,21 @@ function App() {
     nfc1: '5',
     nfc2: '7',
     nfc3: '3',
-    afc4: null,
-    afc5: null,
-    nfc4: null,
-    nfc5: null,
-    afc6: null,
-    nfc6: null,
+    afc4: '1',
+    afc5: '7',
+    nfc4: '1',
+    nfc5: '7',
+    afc6: '1',
+    nfc6: '1',
     superbowl: null
   }
 
   let afcwildcard = ['1', results.afc1, results.afc2, results.afc3];
   let nfcwildcard = ['1', results.nfc1, results.nfc2, results.nfc3];
+  let afcdivisional = [results.afc4, results.afc5];
+  let nfcdivisional = [results.nfc4, results.nfc5];
+  let afcchampionship = [results.afc6];
+  let nfcchampionship = [results.nfc6];
   afcwildcard.sort();
   nfcwildcard.sort();
 
@@ -70,8 +76,10 @@ function App() {
     console.log(results);
     afcwildcard = [results.afc1, results.afc2, results.afc3];
     nfcwildcard = [results.nfc1, results.nfc2, results.nfc3];
-    console.log(afcwildcard);
-    console.log(nfcwildcard);
+    afcdivisional = [results.afc4, results.afc5];
+    nfcdivisional = [results.nfc4, results.nfc5];
+    afcchampionship = [results.afc6];
+    nfcchampionship = [results.nfc6];
   }
 
   function setPage() {
@@ -83,7 +91,9 @@ function App() {
         {/* <Start setName={setName}/> */}
         {/* <h1>{selected}</h1> */}
         {/* <Wildcard setResults={setResults} results={results} setPage={setPage}/> */}
-        <Divisional setResults={setResults} teams={teams} afcwildcard={afcwildcard} nfcwildcard={nfcwildcard} />
+        {/* <Divisional setResults={setResults} teams={teams} afcwildcard={afcwildcard} nfcwildcard={nfcwildcard} /> */}
+        {/* <Championship setResults={setResults} teams={teams} afcdivisional={afcdivisional} nfcdivisional={nfcdivisional} /> */}
+        <Superbowl setResults={setResults} teams={teams} afcchampionship={afcchampionship} nfcchampionship={nfcchampionship} />
     </div>
   );
 }
