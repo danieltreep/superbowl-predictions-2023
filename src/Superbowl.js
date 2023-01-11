@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Summary from './Summary'
 
 export default function Superbowl({setResults, teams, afcchampionship, nfcchampionship}) {
 
