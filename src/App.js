@@ -1,9 +1,11 @@
+import React from 'react'
 import './App.css';
 import { useState } from 'react';
 import Start from './Start';
 import Wildcard from './Wildcard';
 import Divisional from './Divisional';
-import React from 'react'
+import Championship from './Championship';
+import Superbowl from './Superbowl';
 import chargers from './images/chargers.png';
 import jaguars from './images/jaguars.png';
 import ravens from './images/ravens.png';
@@ -18,12 +20,12 @@ import vikings from './images/vikings.png';
 import seahawks from './images/seahawks.png';
 import chiefs from './images/chiefs.png';
 import eagles from './images/eagles.png';
-import Championship from './Championship';
-import Superbowl from './Superbowl';
+import Summary from './Summary';
 
 function App() {
 
-  const [name, setName] = useState();
+  const [name, setName] = useState('bitchboi');
+  const [winner, setWinner] = useState('nfc');
 
   const teams = {
     afcteams: {
@@ -82,18 +84,25 @@ function App() {
     nfcchampionship = [results.nfc6];
   }
 
-  function setPage() {
-    console.log('next page')
-  }
-
   return (
     <div className="App">
         {/* <Start setName={setName}/> */}
-        {/* <h1>{selected}</h1> */}
+        
         {/* <Wildcard setResults={setResults} results={results} setPage={setPage}/> */}
         {/* <Divisional setResults={setResults} teams={teams} afcwildcard={afcwildcard} nfcwildcard={nfcwildcard} /> */}
         {/* <Championship setResults={setResults} teams={teams} afcdivisional={afcdivisional} nfcdivisional={nfcdivisional} /> */}
         <Superbowl setResults={setResults} teams={teams} afcchampionship={afcchampionship} nfcchampionship={nfcchampionship} />
+        {/* {<Summary 
+          teams={teams} 
+          name={name} 
+          winner={winner} 
+          afcwildcard={afcwildcard} 
+          nfcwildcard={nfcwildcard} 
+          afcdivisional={afcdivisional} 
+          nfcdivisional={nfcdivisional}
+          afcchampionship={afcchampionship} 
+          nfcchampionship={nfcchampionship}
+        />} */}
     </div>
   );
 }
