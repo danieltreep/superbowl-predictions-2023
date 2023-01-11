@@ -142,3 +142,7 @@ input[type=radio]:checked + label{
   transform: translateY(-50%);
   fill: yellow;
 }
+a {
+  text-decoration: none;
+  color: black;
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css';
 import { useState } from 'react';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Start from './Start';
 import Wildcard from './Wildcard';
 import Divisional from './Divisional';
@@ -86,12 +87,31 @@ function App() {
 
   return (
     <div className="App">
+        <Routes>
+          <Route path='/' element={<Start />}/>
+          <Route path='/wildcard' element={<Wildcard setResults={setResults} results={results} />}/>
+          <Route path='/divisional' element={<Divisional setResults={setResults} teams={teams} afcwildcard={afcwildcard} nfcwildcard={nfcwildcard}/>} />
+          <Route path='/championship' element={<Championship setResults={setResults} teams={teams} afcdivisional={afcdivisional} nfcdivisional={nfcdivisional}/>} />
+          <Route path='/superbowl' element={<Superbowl setResults={setResults} teams={teams} afcchampionship={afcchampionship} nfcchampionship={nfcchampionship}/>} />
+          <Route path='/summary' element={<Summary 
+            teams={teams} 
+            name={name} 
+            winner={winner} 
+            afcwildcard={afcwildcard} 
+            nfcwildcard={nfcwildcard} 
+            afcdivisional={afcdivisional} 
+            nfcdivisional={nfcdivisional}
+            afcchampionship={afcchampionship} 
+            nfcchampionship={nfcchampionship}/>} />
+        </Routes>
+          
+        
         {/* <Start setName={setName}/> */}
         
         {/* <Wildcard setResults={setResults} results={results} setPage={setPage}/> */}
         {/* <Divisional setResults={setResults} teams={teams} afcwildcard={afcwildcard} nfcwildcard={nfcwildcard} /> */}
         {/* <Championship setResults={setResults} teams={teams} afcdivisional={afcdivisional} nfcdivisional={nfcdivisional} /> */}
-        <Superbowl setResults={setResults} teams={teams} afcchampionship={afcchampionship} nfcchampionship={nfcchampionship} />
+        {/* <Superbowl setResults={setResults} teams={teams} afcchampionship={afcchampionship} nfcchampionship={nfcchampionship} /> */}
         {/* {<Summary 
           teams={teams} 
           name={name} 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Divisional({setResults, teams, afcwildcard, nfcwildcard}) {
 
@@ -38,7 +39,7 @@ export default function Divisional({setResults, teams, afcwildcard, nfcwildcard}
             <input type='radio' name='nfc5' value={nfcwildcard[2]} id={teams.nfcteams[nfcwildcard[2]]} hidden onChange={(e) => setResults('nfc5', e.target.value)}></input>
             <label htmlFor={teams.nfcteams[nfcwildcard[2]]} ><img src={teams.nfcteams[nfcwildcard[2]]} alt={nfcwildcard[2]}></img></label>
         </div>
-        <button type='submit' onClick={(e) => {e.preventDefault(); console.log(afcwildcard, nfcwildcard)}}>Championship round <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm-3 5.753l6.44 5.247-6.44 5.263.678.737 7.322-6-7.335-6-.665.753z"/></svg></button>
+        <button> <Link to='/championship'>Go to Championship </Link> <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm-3 5.753l6.44 5.247-6.44 5.263.678.737 7.322-6-7.335-6-.665.753z"/></svg></button>
     </form>
   )
 }
