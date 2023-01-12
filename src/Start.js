@@ -2,26 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import nfl from './images/nfl.png';
 
-export default function Start({setName}) {
+
+export default function Start({setName, names}) {
 
   function onChange(e) {
-    setName(e);
+    setName(names[e]);
     const button = document.getElementById('predict');
     button.disabled = false;
+    const welcome = document.querySelector('.welcome');
+    welcome.innerHTML = `Welcome <img className='welcomeimg' src=${names[e]}></img>`;
   }
 
   return (
     <>
       <img src={nfl} alt='nfl'></img>
-      <h1>Welcome to the boys superbowl predictions!</h1>
+      <h1 className='welcome'>Welcome to the boys superbowl predictions!</h1>
       <form>
         <select id='name' defaultValue='Choose your name' onChange={(e) => onChange(e.target.value)}>
           <option disabled>Choose your name</option>
-          <option value='Alec'>Alec</option>
-          <option value='Bobby'>Bobby</option>
-          <option value='Elvis'>Elvis</option>
-          <option value='Ivar'>Ivar</option>
-          <option value='Daniel'>Daniel</option>
+          <option value='alec'>Alec</option>
+          <option value='bobby'>Bobby</option>
+          <option value='elvis'>Elvis</option>
+          <option value='ivar'>Ivar</option>
+          <option value='daniel'>Daniel</option>
         </select>
           
         <Link to='/wildcard'><button id='predict' disabled>Let's predict this shit  </button></Link>

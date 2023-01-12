@@ -4,7 +4,7 @@ export default function Summary({teams, name, results, afcwildcard, nfcwildcard,
 
     return (
         <div className='summaryPage'>
-        <h2>{`${name}'s predictions`}</h2>
+        <h2 className='welcome'><img src={name} alt='ye'></img>'s predictions</h2>
             <div className='row6'>
                 <div className='summaryMatch'>
                     <img src={teams.afcteams[5]} alt='bitches'></img>

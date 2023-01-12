@@ -21,6 +21,11 @@ import vikings from './images/vikings.png';
 import seahawks from './images/seahawks.png';
 import chiefs from './images/chiefs.png';
 import eagles from './images/eagles.png';
+import alec from './images/alec.png'
+import ivar from './images/ivar.png'
+import elvis from './images/elvis.png'
+import bobby from './images/bobby.png'
+import daniel from './images/daniel.png'
 import Summary from './Summary';
 
 function App() {
@@ -41,6 +46,14 @@ function App() {
     nfc6: '',
     superbowl: '',
   })
+
+  const names = {
+    alec: alec,
+    bobby: bobby,
+    elvis: elvis,
+    daniel: daniel,
+    ivar: ivar
+  }
 
   const teams = {
     afcteams: {
@@ -74,7 +87,6 @@ function App() {
 
   function updateResults(match, winner) {
     setResults({...results, [match]: winner});
-    console.log(results[match]);
     afcwildcard = [results.afc1, results.afc2, results.afc3];
     nfcwildcard = [results.nfc1, results.nfc2, results.nfc3];
     afcdivisional = [results.afc4, results.afc5];
@@ -83,11 +95,10 @@ function App() {
     nfcchampionship = [results.nfc6];
   }
 
-
   return (
     <div className="App">
         <Routes>
-          <Route path='/' element={<Start setName={setName} name={name}/>}/>
+          <Route path='/' element={<Start setName={setName} names={names}/>}/>
           <Route path='/wildcard' element={<Wildcard setResults={updateResults} results={results} />}/>
           <Route path='/divisional' element={<Divisional setResults={updateResults} teams={teams} afcwildcard={afcwildcard} nfcwildcard={nfcwildcard}/>} />
           <Route path='/championship' element={<Championship setResults={updateResults} teams={teams} afcdivisional={afcdivisional} nfcdivisional={nfcdivisional}/>} />
