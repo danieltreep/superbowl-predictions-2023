@@ -25,8 +25,22 @@ import Summary from './Summary';
 
 function App() {
 
-  const [name, setName] = useState('bitchboi');
-  const [winner, setWinner] = useState('nfc');
+  const [name, setName] = useState('');
+  const [results, setResults] = useState({
+    afc1: '',
+    afc2: '',
+    afc3: '',
+    nfc1: '',
+    nfc2: '',
+    nfc3: '',
+    afc4: '',
+    afc5: '',
+    nfc4: '',
+    nfc5: '',
+    afc6: '',
+    nfc6: '',
+    superbowl: '',
+  })
 
   const teams = {
     afcteams: {
@@ -48,22 +62,6 @@ function App() {
         7: seahawks
     }
   }
-  
-  const results = {
-    afc1: '5',
-    afc2: '7',
-    afc3: '3',
-    nfc1: '5',
-    nfc2: '7',
-    nfc3: '3',
-    afc4: '1',
-    afc5: '7',
-    nfc4: '1',
-    nfc5: '7',
-    afc6: '1',
-    nfc6: '1',
-    superbowl: null
-  }
 
   let afcwildcard = ['1', results.afc1, results.afc2, results.afc3];
   let nfcwildcard = ['1', results.nfc1, results.nfc2, results.nfc3];
@@ -74,9 +72,9 @@ function App() {
   afcwildcard.sort();
   nfcwildcard.sort();
 
-  function setResults(match, winner) {
-    results[match] = winner;
-    console.log(results);
+  function updateResults(match, winner) {
+    setResults({...results, [match]: winner});
+    console.log(results[match]);
     afcwildcard = [results.afc1, results.afc2, results.afc3];
     nfcwildcard = [results.nfc1, results.nfc2, results.nfc3];
     afcdivisional = [results.afc4, results.afc5];
@@ -85,18 +83,19 @@ function App() {
     nfcchampionship = [results.nfc6];
   }
 
+
   return (
     <div className="App">
         <Routes>
-          <Route path='/' element={<Start setName={setName}/>}/>
-          <Route path='/wildcard' element={<Wildcard setResults={setResults} results={results} />}/>
-          <Route path='/divisional' element={<Divisional setResults={setResults} teams={teams} afcwildcard={afcwildcard} nfcwildcard={nfcwildcard}/>} />
-          <Route path='/championship' element={<Championship setResults={setResults} teams={teams} afcdivisional={afcdivisional} nfcdivisional={nfcdivisional}/>} />
-          <Route path='/superbowl' element={<Superbowl setResults={setResults} teams={teams} afcchampionship={afcchampionship} nfcchampionship={nfcchampionship}/>} />
+          <Route path='/' element={<Start setName={setName} name={name}/>}/>
+          <Route path='/wildcard' element={<Wildcard setResults={updateResults} results={results} />}/>
+          <Route path='/divisional' element={<Divisional setResults={updateResults} teams={teams} afcwildcard={afcwildcard} nfcwildcard={nfcwildcard}/>} />
+          <Route path='/championship' element={<Championship setResults={updateResults} teams={teams} afcdivisional={afcdivisional} nfcdivisional={nfcdivisional}/>} />
+          <Route path='/superbowl' element={<Superbowl setResults={updateResults} teams={teams} afcchampionship={afcchampionship} nfcchampionship={nfcchampionship}/>} />
           <Route path='/summary' element={<Summary 
             teams={teams} 
-            name={name} 
-            winner={winner} 
+            name={name}  
+            results={results}
             afcwildcard={afcwildcard} 
             nfcwildcard={nfcwildcard} 
             afcdivisional={afcdivisional} 

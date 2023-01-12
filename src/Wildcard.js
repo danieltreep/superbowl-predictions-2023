@@ -14,15 +14,10 @@ import giants from './images/giants.png';
 import vikings from './images/vikings.png';
 import seahawks from './images/seahawks.png';
 
-export default function Wildcard({setResults, results, setPage}) {
-
-    function checkSubmit(e) {
-        e.preventDefault();
-        setPage('Divisional');
-    }
+export default function Wildcard({setResults}) {
 
     return (
-        <form onSubmit={(e) => checkSubmit(e)}>
+        <form>
             <h1>AFC Wildcard</h1>
             <p>Click on the logos to select the winners</p>
             <div className='match'>
@@ -79,7 +74,7 @@ export default function Wildcard({setResults, results, setPage}) {
                 <input type='radio' name='nfc3' value='2' id='sf' hidden  onChange={(e) => setResults('nfc3', e.target.value)}></input>
                 <label htmlFor='sf' ><img src={sf} alt='sf'></img></label>
             </div>
-            <button> <Link to='/divisional'>Go to Divisional </Link> <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm-3 5.753l6.44 5.247-6.44 5.263.678.737 7.322-6-7.335-6-.665.753z"/></svg></button>
+            <Link to='/divisional'><button> Go to Divisional  <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm-3 5.753l6.44 5.247-6.44 5.263.678.737 7.322-6-7.335-6-.665.753z"/></svg></button></Link>
     </form>
     )
 }

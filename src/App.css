@@ -4,13 +4,19 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.App {
+#root {
   background-color: #013369;
+  display: flex;
+  justify-content: center;
+}
+.App {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 420px;
+  padding: 1.5rem;
 }
 label {
   color: white;
@@ -22,8 +28,7 @@ label img {
 form {
   display: flex;
   flex-direction: column;
-  margin: 3rem;
-  width: calc(100% - 4rem);
+  width: 95%;
   padding: 1rem;
 }
 
@@ -32,26 +37,30 @@ h1, p, h2 {
   text-align: center;
   color: white;
 }
-input {
+select {
   padding: .8rem;
   margin: 1rem 0 3rem;
   border-radius: 10px;
   border: white 1px solid;
   outline: white;
-  background-color: rgba(255, 255, 255, 0.281);
+  background-color: rgba(202, 189, 189, 0.274);
+  color: white;
+  transition: .2s;
 }
-input:focus {
+select:focus {
   background-color: rgb(255, 255, 255);
+  color: black;
 }
 button {
   padding: 1rem;
-  margin: 1rem 0 0;
+  margin: 1rem 0;
   background-color: yellow;
   border-radius: 10px;
   border: none;
   position: relative;
   text-transform: uppercase;
   font-weight: 700;
+  width: 100%;
 }
 button svg {
   position: absolute;
