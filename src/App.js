@@ -7,20 +7,23 @@ import Wildcard from './Wildcard';
 import Divisional from './Divisional';
 import Championship from './Championship';
 import Superbowl from './Superbowl';
-import chargers from './images/chargers.png';
-import jaguars from './images/jaguars.png';
+
+
 import ravens from './images/ravens.png';
-import bengals from './images/bengals.png';
+import packers from './images/packers.png';
+import steelers from './images/steelers.png';
+import lions from './images/lions.png';
+import texans from './images/texans.png';
+import browns from './images/browns.png';
 import dolphins from './images/dolphins.png';
 import bills from './images/bills.png';
 import bucs from './images/bucs.png';
 import sf from './images/sf.png';
 import cowboys from './images/cowboys.png';
-import giants from './images/giants.png';
-import vikings from './images/vikings.png';
-import seahawks from './images/seahawks.png';
+import rams from './images/rams.png';
 import chiefs from './images/chiefs.png';
 import eagles from './images/eagles.png';
+
 import alec from './images/alec.png'
 import ivar from './images/ivar.png'
 import elvis from './images/elvis.png'
@@ -57,22 +60,22 @@ function App() {
 
   const teams = {
     afcteams: {
-        1: chiefs,
+        1: ravens,
         2: bills,
-        3: bengals,
-        4: jaguars,
-        5: chargers,
-        6: ravens,
-        7: dolphins
+        3: chiefs,
+        4: texans,
+        5: browns,
+        6: dolphins,
+        7: steelers
     },
     nfcteams: {
-        1: eagles,
-        2: sf,
-        3: vikings,
+        1: sf,
+        2: cowboys,
+        3: lions,
         4: bucs,
-        5: cowboys,
-        6: giants,
-        7: seahawks
+        5: eagles,
+        6: rams,
+        7: packers
     }
   }
 
